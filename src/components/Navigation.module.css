@@ -3,10 +3,11 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 70px;
   z-index: 1000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .navContainer {
@@ -29,6 +30,7 @@
   color: var(--color-accent);
 }
 
+/* ── Desktop nav links ── */
 .navLinks {
   display: flex;
   gap: 2rem;
@@ -45,6 +47,86 @@
   color: var(--color-accent);
 }
 
+/* ── Desktop Contact Us CTA ── */
+.contactBtn {
+  display: inline-flex;
+}
+
+/* ── Hamburger button ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.barTopOpen  { transform: translateY(7px) rotate(45deg) !important; }
+.barMidOpen  { opacity: 0 !important; }
+.barBotOpen  { transform: translateY(-7px) rotate(-45deg) !important; }
+
+/* ── Mobile dropdown ── */
+.mobileMenu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-top: 1px solid var(--border-color);
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+}
+
+.mobileMenuOpen {
+  max-height: 400px;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.mobileLink {
+  display: block;
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: color var(--transition-fast);
+}
+
+.mobileLink:last-child {
+  border-bottom: none;
+}
+
+.mobileLink:hover {
+  color: var(--color-accent);
+}
+
+.mobileLinkCta {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive breakpoints ── */
 @media (max-width: 768px) {
-  .navLinks { display: none; }
+  .navLinks   { display: none; }
+  .contactBtn { display: none; }
+  .hamburger  { display: flex; }
+  .mobileMenu { display: flex; }
 }
