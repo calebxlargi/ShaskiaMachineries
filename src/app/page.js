@@ -1,66 +1,54 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link'
+import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay}></div>
+        <div className={`container ${styles.heroContent} animate-on-load`}>
+          <h1 className={styles.heroTitle}>
+            Engineering <span className="text-gradient">Excellence</span> <br/>
+            in Every Machine.
+          </h1>
+          <p className={styles.heroText}>
+            Shaskia Machineries delivers premium injection molding machines, reconditioned equipment, and comprehensive factory solutions to elevate your production capabilities.
           </p>
+          <div className={styles.heroBtns}>
+            <Link href="/catalog" className="btn btn-primary">View Products</Link>
+            <Link href="/services" className="btn btn-secondary">Our Services</Link>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className={styles.features}>
+        <div className="container">
+          <div className="grid grid-cols-3">
+            <div className={styles.featureCard + " glass"}>
+              <h3>Premium Machinery</h3>
+              <p>Top-tier new and reconditioned injection molding machines tailored to your specs.</p>
+            </div>
+            <div className={styles.featureCard + " glass"}>
+              <h3>Expert Maintenance</h3>
+              <p>Comprehensive repairing, servicing, and system upgrades by seasoned engineers.</p>
+            </div>
+            <div className={styles.featureCard + " glass"}>
+              <h3>Factory Relocation</h3>
+              <p>Seamless, localized machine shifting and factory setup in the Klang Valley.</p>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+      
+      <section className={styles.cta}>
+        <div className="container">
+          <div className={styles.ctaBox + " glass"}>
+            <h2>Ready to Upgrade Your Production?</h2>
+            <p>Contact our experts today for a free consultation or quotation.</p>
+            <Link href="/contact" className="btn btn-primary">Contact Us Now</Link>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }

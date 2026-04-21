@@ -1,0 +1,106 @@
+.header {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  padding: 2rem;
+  border-radius: var(--border-radius-md);
+}
+
+.infoCard h3 {
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.mapContainer {
+  height: 300px;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.formContainer {
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius-lg);
+}
+
+.formContainer h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.statusMessage {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 1rem;
+  background-color: var(--color-accent-light);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-accent);
+}
