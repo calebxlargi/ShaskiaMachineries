@@ -6,8 +6,7 @@
   height: 70px;
   z-index: 1000;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .navContainer {
@@ -24,6 +23,7 @@
   text-decoration: none;
   color: var(--color-primary);
   letter-spacing: -0.5px;
+  z-index: 1100;
 }
 
 .logoAccent {
@@ -47,19 +47,14 @@
   color: var(--color-accent);
 }
 
-/* ── Desktop Contact Us CTA ── */
-.contactBtn {
-  display: inline-flex;
-}
-
 /* ── Hamburger button ── */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
+  gap: 6px;
+  width: 36px;
+  height: 36px;
   background: none;
   border: none;
   cursor: pointer;
@@ -67,7 +62,7 @@
   z-index: 1100;
 }
 
-.hamburger span {
+.bar {
   display: block;
   height: 2px;
   width: 100%;
@@ -77,56 +72,59 @@
   transform-origin: center;
 }
 
-.barTopOpen  { transform: translateY(7px) rotate(45deg) !important; }
-.barMidOpen  { opacity: 0 !important; }
-.barBotOpen  { transform: translateY(-7px) rotate(-45deg) !important; }
+.barTopOpen { transform: translateY(8px) rotate(45deg); }
+.barMidOpen { opacity: 0; }
+.barBotOpen { transform: translateY(-8px) rotate(-45deg); }
 
-/* ── Mobile dropdown ── */
-.mobileMenu {
+/* ── Mobile overlay ── */
+.mobileOverlay {
   display: none;
-  max-height: 0;
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 7, 18, 0.97);
+  z-index: 999;
   flex-direction: column;
-  background: var(--color-surface);
-  border-top: 1px solid var(--border-color);
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0 1.5rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.mobileMenuOpen {
-  max-height: 400px;
-  padding: 1rem 1.5rem 1.5rem;
+.mobileOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileMenuInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .mobileLink {
   display: block;
   text-decoration: none;
   color: var(--text-main);
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--border-color);
-  transition: color var(--transition-fast);
-}
-
-.mobileLink:last-child {
-  border-bottom: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius-md);
+  transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .mobileLink:hover {
   color: var(--color-accent);
+  background: rgba(59, 130, 246, 0.1);
 }
 
-.mobileLinkCta {
-  color: var(--color-accent);
-  font-weight: 700;
-  margin-top: 0.5rem;
-}
-
-/* ── Responsive breakpoints ── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .navLinks   { display: none; }
-  .contactBtn { display: none; }
-  .hamburger  { display: flex; }
-  .mobileMenu { display: flex; }
+  .navLinks    { display: none; }
+  .hamburger   { display: flex; }
+  .mobileOverlay { display: flex; }
 }
